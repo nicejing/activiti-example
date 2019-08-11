@@ -1,7 +1,6 @@
 package com.github.nicejing.activiti.test.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
-import org.activiti.engine.logging.LogMDC;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.activiti.engine.test.ActivitiRule;
@@ -20,7 +19,7 @@ public class ConfigInterceptorTest {
 
     @Test
     @Deployment(resources = "my-process.bpmn20.xml")
-    public void test(){
+    public void test() {
         ProcessInstance processInstance = activitiRule.getRuntimeService().startProcessInstanceByKey("my-process");
         System.out.print(processInstance.getName());
         Task task = activitiRule.getTaskService().createTaskQuery().singleResult();

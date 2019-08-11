@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="transactionManager" ref="dataSourceTransactionManager"/>
+        <property name="databaseSchemaUpdate"  value="true"/>
+
+    </bean>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="url" value="jdbc:h2:mem:activiti"/>
+        <property name="driverClassName" value="org.h2.Driver"/>
+        <property name="username" value="sa"/>
+        <property name="password" value=""/>
+        <property name="initialSize" value="1"/>
+        <property name="maxActive" value="10"/>
+        <property name="filters" value="stat, slf4j"/>
+    </bean>
+
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+
+    </bean>
+
+    <bean id="processEngineFactoryBean" class="org.activiti.spring.ProcessEngineFactoryBean">
+        <property name="processEngineConfiguration" ref="processEngineConfiguration"/>
+    </bean>
+
+    <bean id="repositoryService" factory-bean="processEngineFactoryBean" factory-method="getRepositoryService"/>
+    <bean id="runtimeService" factory-bean="processEngineFactoryBean" factory-method="getRuntimeService"/>
+    <bean id="formService" factory-bean="processEngineFactoryBean" factory-method="getFormService"/>
+    <bean id="taskService" factory-bean="processEngineFactoryBean" factory-method="getTaskService"/>
+    <bean id="historyService" factory-bean="processEngineFactoryBean" factory-method="getHistoryService"/>
+
+    <bean id="activitiRule" class="org.activiti.engine.test.ActivitiRule">
+        <property name="processEngine" ref="processEngineFactoryBean"/>
+    </bean>
+</beans>

@@ -30,7 +30,6 @@ public class ConfigEventLogTest {
         for (EventLogEntry eventLogEntry : eventLogEntries) {
             log.info("eventLogEntry type = {},data= {}", eventLogEntry.getType(),eventLogEntry.getData());
         }
-
         System.out.print(processInstance.getName());
         Task task = activitiRule.getTaskService().createTaskQuery().singleResult();
         System.out.println(task.getName());

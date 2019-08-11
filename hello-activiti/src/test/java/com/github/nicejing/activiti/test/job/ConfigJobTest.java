@@ -17,7 +17,7 @@ public class ConfigJobTest {
 
     @Test
     @Deployment(resources = "my-process.bpmn20.xml")
-    public void test(){
+    public void test() {
 
     }
 }

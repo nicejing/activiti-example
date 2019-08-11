@@ -20,7 +20,7 @@ public class ConfigMDCTest {
 
     @Test
     @Deployment(resources = "my-process.bpmn20.xml")
-    public void test(){
+    public void test() {
 
         // 需要设置logback mdc字段
         LogMDC.setMDCEnabled(true);

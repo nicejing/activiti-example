@@ -13,7 +13,6 @@ public class ConfigDBTest {
 
     @Test
     public void configDBTest1() {
-
         ProcessEngineConfiguration configuration = ProcessEngineConfiguration.createProcessEngineConfigurationFromResource("activiti_druid.cfg.xml");
         log.info("configuration = {}", configuration);
 
@@ -21,6 +20,5 @@ public class ConfigDBTest {
 
         log.info("获取流程引擎: [{}]", processEngine.getName());
         processEngine.close();
-
     }
 }

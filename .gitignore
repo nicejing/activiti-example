@@ -2,3 +2,5 @@
 *.iml
 /target/
 /hello-*/target
+target/
+/*/target

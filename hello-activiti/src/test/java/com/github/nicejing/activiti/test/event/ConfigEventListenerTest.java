@@ -3,15 +3,12 @@ package com.github.nicejing.activiti.test.event;
 import lombok.extern.slf4j.Slf4j;
 import org.activiti.engine.delegate.event.ActivitiEventType;
 import org.activiti.engine.delegate.event.impl.ActivitiEventImpl;
-import org.activiti.engine.event.EventLogEntry;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.activiti.engine.test.ActivitiRule;
 import org.activiti.engine.test.Deployment;
 import org.junit.Rule;
 import org.junit.Test;
-
-import java.util.List;
 
 /**
  * @author Jing Zhi Bao

@@ -22,5 +22,4 @@
         <property name="maxActive" value="10"/>
         <property name="filters" value="stat, slf4j"/>
     </bean>
-
 </beans>
